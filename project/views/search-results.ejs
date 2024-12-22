@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Gevonden Resultaat:</h1>
+    <% if (expense) { %>
+        <p>Uitgave gevonden: <%= expense.description %> - <%= expense.amount %></p>
+    <% } else { %>
+        <p>Geen uitgave gevonden</p>
+    <% } %>
+    <a href="/expenses/0">ga terug</a>
+</body>
+<%- include("partials/footer") %>
+</html>

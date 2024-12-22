@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Expense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Update Expense</h1>
+    <form action="/expenses/<%= expense.id %>/update" method="POST">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+        <br>
+
+        <label for="amount">Kosten: </label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+        <br>
+
+        <label for="date">Datum: </label>
+        <input type="date" id="date" name="date" required>
+        <br>
+
+        <label for="currency">Munteenheid:</label>
+        <select id="currency" name="currency"  required>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="JPY">JPY</option>
+            <option value="AUD">AUD</option>
+            <option value="CNH">CNH</option>
+        </select>
+        <br>
+
+        <label for="paymentMethod">Betaalmethode: </label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="PayPal">PayPal</option>
+        </select>
+        <br>
+
+        <label for="isIncoming">Binnenkomend:</label>
+        <select id="isIncoming" name="isIncoming" required>
+            <option value="Ja">Ja</option>
+            <option value="Nee">Nee</option>
+        </select>
+        <br>
+
+        <label for="category">Categorie:</label>
+        <input type="text" id="category" name="category" required>
+        <br>
+
+
+        <label for="isPaid">Is betaald:</label>
+        <select id="isPaid" name="isPaid" required>
+            <option value="Ja">Ja</option>
+            <option value="Nee">Nee</option>
+        </select>
+        <br>
+
+        <h3>Kaartgegevens:</h3>
+        <label for="cardNumber">Kaart Nummer:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+        <br>
+
+        <label for="expiryDate">Vervaldatum:</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+        <br>
+
+        <button type="submit">Kosten toevoegen</button>
+   
+    </form>
+</body>
+<%- include("partials/footer") %>
+</html>

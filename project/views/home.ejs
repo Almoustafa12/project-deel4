@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welkom <%= user.name %> !</h1>
+    <form action="/logout" method="POST">
+        <button type="submit" id="logout">Logout</button>
+    </form>
+    <br>
+    <a href="/expenses/0">Bekijk de uitgaves</a>  <a href="/expenses/add">Voeg Uitgaves</a>
+</body>
+<%- include("partials/footer") %>
+</html>

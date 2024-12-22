@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Expenses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Uitgaven</h1>
+    <form action="/expenses/search" method="POST">
+        <label for="zoeken">Zoek op beschrijving:</label>
+        <input type="text" name="search" id="zoeken" required>
+        <button type="submit">zoeken</button>
+    </form>
+    <ul>
+        <% expenses.forEach(function(expense) { %>
+            <li>
+                <p>Je hebt een nieuwe uitgave toegevoegd van <strong><%= expense.amount %> <%= expense.currency %></strong> op <strong><%= expense.date %></strong> voor <strong><%= expense.description %></strong> in de categorie <strong><%= expense.category %></strong>.</p>
+                <p>Betalingsmethode: <strong><%= expense.paymentMethod %></strong></p>
+                <p>Is het binnenkomend?: <strong><%= expense.isIncoming ? "Ja" : "Nee" %></strong></p>
+                <p>Is het betaald?: <strong><%= expense.isPaid ? "Ja" : "Nee" %></strong></p>
+                <form action="/expenses/<%= expense.id %>/delete" method="POST" style="display:inline;">
+                    <button type="submit">Verwijder</button>
+                </form>
+                <a href="/expenses/<%= expense.id %>/update">Update</a>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/expenses/add">Voeg nieuwe kosten toe</a>
+</body>
+<%- include("partials/footer") %>
+</html>
